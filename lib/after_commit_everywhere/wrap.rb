@@ -15,6 +15,10 @@ module AfterCommitEverywhere
     end
     # rubocop: enable Naming/PredicateName
 
+    def trigger_transactional_callbacks?
+      true
+    end
+
     def before_committed!(*)
       @handlers[:before_commit]&.call
     end
